@@ -7,7 +7,7 @@
   <meta name="description" content="Publie ton eBook sur Amazon KDP en 2×2h. Accompagnement en direct, 2 places max, replays 30 jours, compatible avec votre agenda. Objectif : te rendre autonome." />
   <style>
     :root{
-      --bg:#ffffff; --txt:#0b0b0b; --muted:#6b7280; --line:#eaeaea; --pill:#f6f6f6; --brand:#0b0b0b; --ok:#16a34a;
+      --bg:#ffffff; --txt:#0b0b0b; --muted:#6b7280; --line:#eaeaea; --pill:#f6f6f6; --brand:#232f3e; --accent:#ff9900; --ok:#16a34a;
     }
     *{box-sizing:border-box}
     html,body{margin:0;padding:0;font-family:Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;background:var(--bg);color:var(--txt);line-height:1.55}
@@ -19,7 +19,7 @@
     .subtitle{font-size:clamp(16px,2.1vw,18px);color:var(--muted);max-width:760px;margin:0 auto 14px}
     .compat{display:inline-flex;gap:8px;align-items:center;justify-content:center;font-weight:600;color:var(--txt);background:var(--pill);border:1px solid var(--line);padding:6px 12px;border-radius:999px;margin:6px auto 18px}
     .badges{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin:10px auto 20px}
-    .badge{font-size:12px;padding:6px 10px;border-radius:999px;background:#fff;border:1px solid var(--line);color:#111}
+    .badge{font-size:12px;padding:6px 10px;border-radius:999px;background:#fff;border:1px solid var(--accent);color:var(--brand)}
     .cta-group{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:12px}
     .author-card{display:flex;gap:12px;align-items:center;justify-content:center;margin:10px auto 6px}
     .author-photo{width:64px;height:64px;border-radius:50%;object-fit:cover;border:1px solid var(--line)}
@@ -27,12 +27,13 @@
     .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 18px;border-radius:8px;border:1px solid var(--brand);text-decoration:none;font-weight:700;letter-spacing:.2px;transition:all .18s ease}
     .btn-primary{background:var(--brand);color:#fff}
     .btn-primary:hover{transform:translateY(-1px)}
-    .btn-secondary{background:#fff;color:var(--brand);border-color:var(--brand)}
-    .btn-secondary:hover{background:#111;color:#fff}
+    .btn-secondary{background:#fff;color:var(--brand);border-color:var(--accent)}
+    .btn-secondary:hover{background:var(--brand);color:#fff}
     .btn-ghost{background:#fff;color:#111;border-color:var(--line)}
     .btn-ghost:hover{border-color:#111}
-    .section{padding:14px 0}
-    .section h2{font-size:clamp(22px,3vw,30px);margin:0 0 10px;letter-spacing:-.01em}
+    .section{padding:24px 0}
+    .section h2{font-size:clamp(22px,3vw,30px);margin:0 0 10px;letter-spacing:-.01em;color:var(--brand);position:relative}
+    .section h2::after{content:"";display:block;width:48px;height:3px;background:var(--accent);margin-top:8px;border-radius:2px}
     .lead{color:var(--muted)}
     .grid-2{display:grid;grid-template-columns:1fr;gap:16px}
     .grid-3{display:grid;grid-template-columns:1fr;gap:16px}
@@ -48,11 +49,11 @@
     @media(min-width:900px){.price-cards{grid-template-columns:repeat(3,1fr)}}
     .price-card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:18px;position:relative}
     .price{font-size:26px;font-weight:800;margin:8px 0}
-    .ribbon{position:absolute;top:12px;right:12px;background:#fff;border:1px solid var(--line);color:#111;padding:6px 10px;border-radius:8px;font-size:12px}
-    .checkmark{color:var(--ok);font-weight:900}
+    .ribbon{position:absolute;top:12px;right:12px;background:var(--accent);border:0;color:#fff;padding:6px 10px;border-radius:8px;font-size:12px}
+    .checkmark{color:var(--accent);font-weight:900}
     .footnote{font-size:12px;color:var(--muted)}
     footer{border-top:1px solid var(--line);background:#fff}
-    .sticky-cta{position:sticky;bottom:0;background:rgba(255,255,255,.92);backdrop-filter:saturate(180%) blur(8px);border-top:1px solid var(--line)}
+    .sticky-cta{position:sticky;bottom:0;background:rgba(255,255,255,.92);backdrop-filter:saturate(180%) blur(8px);border-top:1px solid var(--line);box-shadow:0 -6px 24px rgba(35,47,62,.12)}
     .sticky-cta .inner{display:flex;gap:10px;align-items:center;justify-content:center;padding:10px}
     .kicker{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#374151}
     .sep{height:1px;background:var(--line);margin:8px 0}
@@ -61,6 +62,16 @@
     .amazon-banner .inner{display:flex;gap:10px;align-items:center;justify-content:center;padding:10px 0;flex-wrap:wrap}
     .az-badge{background:#ff9900;color:#111;padding:6px 10px;border-radius:999px;font-weight:800;font-size:12px}
     .az-text{opacity:.95;font-weight:600}
+    /* Amazon themed section */
+    .az-theme{--az-bg:#232f3e;--az-accent:#ff9900}
+    .az-theme h2{color:var(--az-bg)}
+    .az-callout{background:rgba(35,47,62,.06);border:1px solid rgba(35,47,62,.15);border-left:6px solid var(--az-accent);border-radius:12px;padding:14px;margin:10px 0}
+    .az-pill{display:inline-flex;align-items:center;gap:8px;background:var(--az-bg);color:#fff;border-radius:999px;padding:6px 10px;font-weight:800;font-size:12px}
+    .az-pill .dot{width:8px;height:8px;background:var(--az-accent);border-radius:999px;display:inline-block}
+    /* Emphases */
+    .az-emph{background:rgba(255,153,0,.12);border-left:4px solid var(--accent);padding:2px 8px;border-radius:6px;font-weight:800}
+    .highlight-pill{display:inline-flex;align-items:center;gap:8px;background:var(--brand);color:#fff;padding:10px 14px;border-radius:999px;font-weight:800}
+    .highlight-pill .dot{width:8px;height:8px;background:var(--accent);border-radius:999px;display:inline-block}
   
       /* —— HERO MAGAZINE / FROSTED —— */
     .hero-mag{position:relative;padding:clamp(48px,10vw,120px) 0;background-image:linear-gradient(180deg, rgba(12,14,20,.55), rgba(12,14,20,.55)), url('elo-hero.jpg');background-size:cover;background-position:center}
@@ -98,9 +109,8 @@
           <img src="elo-hero.jpg" alt="Elo B — formatrice Amazon KDP" class="author-photo" />
           <div class="author-meta"><strong>Elo B</strong> — autrice KDP · <span class="kicker">90+ eBooks publiés</span></div>
         </div>
-        <div class="cta-group">
-          <a class="btn btn-primary" href="#prix" aria-label="Je réserve ma place">Je réserve ma place</a>
-          <a class="btn btn-secondary" href="#programme" aria-label="Voir le programme">Voir le programme</a>
+        $1
+          <a class="btn btn-ghost" href="#kdp" aria-label="Découvrir KDP">Découvrir KDP ↓</a>
         </div>
       </div>
     </div>
@@ -116,9 +126,12 @@
     </div>
 
     <!-- Qu'est-ce que KDP ? -->
-    <section id="kdp" class="container section">
+    <section id="kdp" class="container section az-theme">
+      <div class="az-pill"><span class="dot"></span>Amazon KDP</div>
       <h2>Amazon KDP, c’est quoi ?</h2>
-      <p class="lead">KDP (Kindle Direct Publishing) est la plateforme d’Amazon pour <strong>auto‑publier</strong> des eBooks (et, au besoin, des brochés). Tu gardes 100% de tes droits d’auteur et pilotes ta fiche produit.</p>
+      <div class="az-callout">
+        <p class="lead">KDP (Kindle Direct Publishing) est la plateforme d’Amazon pour <strong>auto‑publier<\/strong> des eBooks (et, au besoin, des brochés). <span class="az-emph">Tu gardes 100% de tes droits d’auteur et pilotes ta fiche produit.<\/span></p>
+      </div>
       <div class="grid-2">
         <div class="card">
           <h3>En clair</h3>
@@ -147,7 +160,8 @@
     <!-- À qui s’adresse -->
     <section id="pour-qui" class="container section">
       <h2>À qui s’adresse la formation</h2>
-      <p class="lead">A TOUS CEUX QUI SOUHAITENT GÉNÉRER UN REVENU PASSIF EN PUBLIANT UN EBOOK SUR AMAZON KDP — Mon objectif : te rendre autonome pour créer et publier d’autres eBooks sur Amazon KDP.</p>
+      <div class="highlight-pill" aria-label="Audience visée"><span class="dot"></span>A TOUS CEUX QUI SOUHAITENT GÉNÉRER UN REVENU PASSIF EN PUBLIANT UN EBOOK SUR AMAZON KDP</div>
+      <p class="lead">Mon objectif : te rendre autonome pour créer et publier d’autres eBooks sur Amazon KDP.</p>
       <div class="grid-2">
         <div class="card">
           <h3>Profils</h3>
