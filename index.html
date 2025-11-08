@@ -3,34 +3,6 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-<!-- Qu'est-ce que KDP ? -->
-<section id="kdp" class="container section">
-  <h2>Amazon KDP, c’est quoi ?</h2>
-  <p class="lead">KDP (Kindle Direct Publishing) est la plateforme d’Amazon pour <strong>auto-publier</strong> des eBooks (et, au besoin, des brochés). Tu gardes 100% de tes droits d’auteur et pilotes ta fiche produit.</p>
-  <div class="grid-2">
-    <div class="card">
-      <h3>En clair</h3>
-      <ul class="list">
-        <li>Publication <strong>gratuite</strong> : aucun stock, pas d’imprimeur à payer.</li>
-        <li>Mise en vente en <strong>quelques heures/jours</strong> sur la boutique Amazon.</li>
-        <li>Tu fixes ton <strong>prix</strong> et gères description, catégories, mots-clés.</li>
-        <li><strong>Royalties</strong> sur chaque vente (35% ou 70% selon prix/territoires).</li>
-        <li>Tableau de bord et versements mensuels gérés par Amazon.</li>
-      </ul>
-    </div>
-    <div class="card">
-      <h3>Pourquoi publier dessus</h3>
-      <ul class="list">
-        <li><strong>Audience mondiale</strong> : des millions de lecteurs sur Kindle.</li>
-        <li><strong>Découvrabilité</strong> : recherche Amazon + catégories/niches.</li>
-        <li><strong>Contrôle total</strong> : couverture, texte et prix modifiables à tout moment.</li>
-        <li><strong>Effet catalogue</strong> : chaque nouvel eBook renforce la visibilité de tes autres titres.</li>
-        <li><strong>Évolutif</strong> : commence simple, améliore ensuite (titres, description, catégories).</li>
-      </ul>
-      <p class="footnote">Important : KDP n’est pas une promesse de revenus. Les résultats dépendent de la qualité du contenu, du choix de la niche et de l’optimisation de la fiche produit.</p>
-    </div>
-  </div>
-</section>
   <title>Objectif KDP — Publie ton 1er eBook en 2 soirées</title>
   <meta name="description" content="Publie ton eBook sur Amazon KDP en 2×2h. Accompagnement en direct, 2 places max, replays 30 jours, compatible avec votre agenda. Objectif : te rendre autonome." />
   <style>
@@ -84,6 +56,11 @@
     .sticky-cta .inner{display:flex;gap:10px;align-items:center;justify-content:center;padding:10px}
     .kicker{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#374151}
     .sep{height:1px;background:var(--line);margin:8px 0}
+    /* Amazon brand banner */
+    .amazon-banner{background:#232f3e;color:#fff}
+    .amazon-banner .inner{display:flex;gap:10px;align-items:center;justify-content:center;padding:10px 0;flex-wrap:wrap}
+    .az-badge{background:#ff9900;color:#111;padding:6px 10px;border-radius:999px;font-weight:800;font-size:12px}
+    .az-text{opacity:.95;font-weight:600}
   
       /* —— HERO MAGAZINE / FROSTED —— */
     .hero-mag{position:relative;padding:clamp(48px,10vw,120px) 0;background-image:linear-gradient(180deg, rgba(12,14,20,.55), rgba(12,14,20,.55)), url('elo-hero.jpg');background-size:cover;background-position:center}
@@ -108,7 +85,8 @@
     <div class="container">
       <div class="glass-card" role="region" aria-label="Hero">
         <p class="compat" aria-label="Compatible agenda">📅 COMPATIBLE AVEC VOTRE AGENDA</p>
-        <h1>Objectif KDP — Publie ton 1er eBook en 2 soirées (2×2h)</h1>
+        <h1>Publie ton 1er eBook en 2 soirées — Coaching intensif en ligne via Google Meet</h1>
+        <p class="subtitle">Formule NOVICE (2×2h) ou FAST-TRACK (1×2h) — Accompagnement complet de la création à la publication.</p>
         <p class="subtitle">Finalise, mets en page et publie ton eBook sur Amazon KDP en 2 sessions guidées. Accompagnement en direct, corrections en temps réel. Replays 30 jours. Objectif : te rendre autonome pour créer et publier d’autres eBooks.</p>
         <div class="badges" aria-label="Points clés">
           <span class="badge">2 places max</span>
@@ -129,6 +107,43 @@
   </header>
 
   <main>
+    <!-- Amazon KDP banner + section (placé après le hero) -->
+    <div class="amazon-banner">
+      <div class="container inner">
+        <span class="az-badge">Amazon KDP</span>
+        <span class="az-text">Publie en toute autonomie sur la plateforme d’Amazon</span>
+      </div>
+    </div>
+
+    <!-- Qu'est-ce que KDP ? -->
+    <section id="kdp" class="container section">
+      <h2>Amazon KDP, c’est quoi ?</h2>
+      <p class="lead">KDP (Kindle Direct Publishing) est la plateforme d’Amazon pour <strong>auto‑publier</strong> des eBooks (et, au besoin, des brochés). Tu gardes 100% de tes droits d’auteur et pilotes ta fiche produit.</p>
+      <div class="grid-2">
+        <div class="card">
+          <h3>En clair</h3>
+          <ul class="list">
+            <li>Publication <strong>gratuite</strong> : aucun stock, pas d’imprimeur à payer.</li>
+            <li>Mise en vente en <strong>quelques heures/jours</strong> sur la boutique Amazon.</li>
+            <li>Tu fixes ton <strong>prix</strong> et gères description, catégories, mots‑clés.</li>
+            <li><strong>Royalties</strong> sur chaque vente (35% ou 70% selon prix/territoires).</li>
+            <li>Tableau de bord et versements mensuels gérés par Amazon.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Pourquoi publier dessus</h3>
+          <ul class="list">
+            <li><strong>Audience mondiale</strong> : des millions de lecteurs sur Kindle.</li>
+            <li><strong>Découvrabilité</strong> : recherche Amazon + catégories/niches.</li>
+            <li><strong>Contrôle total</strong> : couverture, texte et prix modifiables à tout moment.</li>
+            <li><strong>Effet catalogue</strong> : chaque nouvel eBook renforce la visibilité de tes autres titres.</li>
+            <li><strong>Évolutif</strong> : commence simple, améliore ensuite (titres, description, catégories).</li>
+          </ul>
+          <p class="footnote">Important : KDP n’est pas une promesse de revenus. Les résultats dépendent de la qualité du contenu, du choix de la niche et de l’optimisation de la fiche produit.</p>
+        </div>
+      </div>
+    </section>
+
     <!-- À qui s’adresse -->
     <section id="pour-qui" class="container section">
       <h2>À qui s’adresse la formation</h2>
@@ -207,9 +222,7 @@
           <p class="muted"><strong>Livrables :</strong> fichiers finaux, fiche produit online, mini plan de lancement 7j.</p>
         </article>
       </div>
-    </section>
-
-    <!-- Inclus -->
+    </section><!-- Inclus -->
     <section id="inclus" class="container section">
       <h2>Ce qui est inclus</h2>
       <div class="grid-3">
@@ -237,11 +250,7 @@
         <li><strong>Pré-work (30–60 min) :</strong> check technique (micro/connexion), brouillon/idéation, images éventuelles.</li>
         <li><strong>2 sessions en visio :</strong> Google Meet → publication → suivi par email.</li>
       </ol>
-    </section>
-
-    
-
-    <!-- Preuves & témoignages -->
+    </section><!-- Preuves & témoignages -->
     <section id="preuves" class="container section">
       <h2>Preuves & crédibilité</h2>
       <p><strong>Formatrice :</strong> Elo B — autrice KDP, + de 90 eBooks publiés. Méthode terrain : zéro blabla, on produit en direct.</p>
