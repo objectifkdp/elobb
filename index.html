@@ -126,6 +126,63 @@
   <meta property="og:description" content="Publie ton eBook sur Amazon KDP en 2×2h. Accompagnement en direct, 2 places max, replays 30 jours. Objectif : autonomie." />
   <meta property="og:image" content="elo-hero.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
+  /* ====== RESCUE LECTURE (haute-contraste) ====== */
+
+/* Titres + texte par défaut */
+html, body, p, li, span, a, small { color: var(--txt) !important; }
+h1, h2, h3, h4, h5, h6 { color: var(--txt) !important; }
+
+/* Cartes/sections : forcer fond sombre + bord fin */
+.section, .section-card, .card, .box, .panel, .tile {
+  background: var(--pill) !important;           /* #121212 */
+  border: 1px solid var(--line) !important;     /* #242424 */
+  color: var(--txt) !important;
+  border-radius: 16px;
+}
+
+/* Contenus dans les cartes */
+.section-card p, .section-card li,
+.card p, .card li,
+.box p, .box li {
+  color: var(--txt) !important;   /* ivoire */
+  opacity: .95 !important;
+}
+
+/* Sous-titres/tags (lisibles mais adoucis) */
+.subtitle, .muted, .note, .hint, .tag, .chip {
+  color: var(--muted) !important; /* #D9D6CF */
+  opacity: .9 !important;
+}
+
+/* Boutons & CTA */
+.btn, .button, .cta {
+  border: 1px solid var(--line) !important;
+  border-radius: 16px !important;
+}
+.btn-primary, .button--primary, .cta-primary {
+  background: var(--accent) !important;  /* or doux */
+  color: var(--bg) !important;           /* texte foncé */
+  border-color: var(--accent) !important;
+}
+
+/* Liens */
+a { color: var(--txt) !important; }
+a:hover { opacity: .85; }
+
+/* Inputs */
+input, textarea, select {
+  background: transparent !important;
+  color: var(--txt) !important;
+  border: 1px solid var(--line) !important;
+}
+::placeholder { color: #cfcac2 !important; opacity: .9; }
+
+/* Séparateurs */
+hr, .divider { background: var(--line) !important; border-color: var(--line) !important; }
+
+/* Header translucide propre (si présent) */
+.header { backdrop-filter: blur(8px); background: rgba(11,11,11,.75) !important; border-bottom:1px solid var(--line) !important; }
+
 </head>
 <body>
   <header class="hero hero-mag">
