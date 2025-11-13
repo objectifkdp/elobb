@@ -1,45 +1,499 @@
-<style>
-/* ====== RESCUE LECTURE (haute-contraste) ====== */
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Objectif KDP — Publie ton 1er eBook en 2 soirées</title>
+  <meta name="description" content="Publie ton eBook sur Amazon KDP en 2×2h. Accompagnement en direct, 2 places max, replays 30 jours, compatible avec votre agenda. Objectif : te rendre autonome." />
+  <meta property="og:title" content="Objectif KDP — Publie ton 1er eBook en 2 soirées" />
+  <meta property="og:description" content="Publie ton eBook sur Amazon KDP en 2×2h. Accompagnement en direct, 2 places max, replays 30 jours. Objectif : autonomie." />
+  <meta property="og:image" content="elo-hero.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" href="favicon.png" type="image/png" />
+  <!-- Polices luxe -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
 
-/* Titres + texte par défaut */
-html, body, p, li, span, a, small { color: var(--txt) !important; }
-h1, h2, h3, h4, h5, h6 { color: var(--txt) !important; }
+  <style>
+  :root{
+    /* Palette luxe / nuit */
+    --bg:#0B0B0B;         /* fond noir profond */
+    --txt:#F2EFEA;        /* texte ivoire */
+    --muted:#D9D6CF;      /* texte adouci */
+    --line:#242424;       /* séparateurs charbon */
+    --pill:#121212;       /* cartes sombres */
+    --brand:#C6A15B;      /* or doux (accents/titres) */
+    --accent:#C6A15B;     /* or doux (boutons/CTA) */
+    --ok:#16a34a;
+  }
 
-/* Cartes/sections : fond sombre + bord fin */
-.section, .section-card, .card, .box, .panel, .tile {
-  background: var(--pill) !important;
-  border: 1px solid var(--line) !important;
-  color: var(--txt) !important;
-  border-radius: 16px;
-}
+  /* Base + structure */
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;background:var(--bg);color:var(--txt);line-height:1.55}
+  h1,h2,h3{ font-family:"Playfair Display", ui-serif, Georgia, serif; color:var(--txt); }
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;height:auto}
+  .container{max-width:980px;margin:0 auto;padding:clamp(16px,3vw,24px)}
 
-/* Contenus dans les cartes */
-.section-card p, .section-card li,
-.card p, .card li,
-.box p, .box li { color: var(--txt) !important; opacity: .95 !important; }
+  /* Hero */
+  .hero{padding-top:64px;padding-bottom:28px;text-align:center}
+  .hero-mag{position:relative;padding:clamp(48px,10vw,120px) 0;background-image:linear-gradient(180deg, rgba(12,14,20,.55), rgba(12,14,20,.55)), url('elo-hero.jpg');background-size:cover;background-position:center}
+  .glass-card{max-width:1100px;margin:0 auto;background:rgba(255,255,255,.35);backdrop-filter:blur(16px) saturate(120%);-webkit-backdrop-filter:blur(16px) saturate(120%);border:1px solid rgba(255,255,255,.35);box-shadow:0 24px 60px rgba(0,0,0,.25);border-radius:28px;padding:clamp(18px,3vw,36px);text-align:left}
+  .glass-card h1{font-size:clamp(36px,5vw,64px);line-height:1.06;color:#fff;letter-spacing:-.02em;margin:0 0 12px}
+  .glass-card .subtitle{color:rgba(255,255,255,.92)}
+  .glass-card .compat{justify-content:flex-start;background:rgba(255,255,255,.25);border-color:rgba(255,255,255,.4)}
+  .glass-card .badges{justify-content:flex-start}
+  .glass-card .badge{background:rgba(255,255,255,.3);border-color:rgba(255,255,255,.5)}
+  .glass-card .author-meta{color:rgba(255,255,255,.92)}
+  .glass-card .btn-primary{background:#fff;color:#111;border-color:#fff}
+  .glass-card .btn-secondary{background:rgba(255,255,255,.18);color:#fff;border-color:rgba(255,255,255,.44)}
 
-/* Sous-titres/tags */
-.subtitle, .muted, .note, .hint, .tag, .chip { color: var(--muted) !important; opacity: .9 !important; }
+  .hero h1{font-size:clamp(30px,4.4vw,48px);line-height:1.08;margin:0 0 10px;font-weight:800;letter-spacing:-.01em}
+  .subtitle{font-size:clamp(16px,2.1vw,18px);color:var(--muted);max-width:760px;margin:0 auto 14px}
+  .compat{display:inline-flex;gap:8px;align-items:center;justify-content:center;font-weight:600;color:var(--txt);background:var(--pill);border:1px solid var(--line);padding:6px 12px;border-radius:999px;margin:6px auto 18px}
+  .badges{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin:10px auto 20px}
+  .badge{font-size:12px;padding:6px 10px;border-radius:999px;background:#fff;border:1px solid var(--accent);color:var(--brand)}
+  .cta-group{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:12px}
 
-/* Boutons & CTA */
-.btn, .button, .cta { border: 1px solid var(--line) !important; border-radius: 16px !important; }
-.btn-primary, .button--primary, .cta-primary {
-  background: var(--accent) !important; color: var(--bg) !important; border-color: var(--accent) !important;
-}
+  /* Sections & grilles */
+  .section{padding:24px 0}
+  .section h2{font-size:clamp(22px,3vw,30px);margin:0 0 10px;letter-spacing:-.01em;color:var(--brand);position:relative}
+  .section h2::after{content:"";display:block;width:48px;height:3px;background:var(--accent);margin-top:8px;border-radius:2px}
+  .lead{color:var(--muted)}
+  .grid-2{display:grid;grid-template-columns:1fr;gap:16px}
+  .grid-3{display:grid;grid-template-columns:1fr;gap:16px}
+  @media(min-width:860px){.grid-2{grid-template-columns:1fr 1fr}.grid-3{grid-template-columns:repeat(3,1fr)}}
 
-/* Liens */
-a { color: var(--txt) !important; } a:hover { opacity: .85; }
+  /* Cartes & listes */
+  .card{background:var(--pill);border:1px solid var(--line);border-radius:12px;padding:18px}
+  ul.check, ul.list {margin:8px 0 0;padding-left:18px}
+  ul.check li{margin:6px 0;padding-left:6px}
+  .muted{color:var(--muted)}
+  details{background:var(--pill);border:1px solid var(--line);border-radius:10px;padding:10px 12px}
+  details+details{margin-top:8px}
+  summary{cursor:pointer;font-weight:700}
 
-/* Inputs */
-input, textarea, select {
-  background: transparent !important; color: var(--txt) !important; border: 1px solid var(--line) !important;
-}
-::placeholder { color: #cfcac2 !important; opacity: .9; }
+  /* Tarifs */
+  .price-cards{display:grid;grid-template-columns:1fr;gap:16px;margin-top:8px}
+  @media(min-width:900px){.price-cards{grid-template-columns:repeat(3,1fr)}}
+  .price-card{background:var(--pill);border:1px solid var(--line);border-radius:12px;padding:18px;position:relative}
+  .price{font-size:26px;font-weight:800;margin:8px 0}
+  .ribbon{position:absolute;top:12px;right:12px;background:var(--accent);border:0;color:#111;padding:6px 10px;border-radius:8px;font-size:12px}
+  .checkmark{color:var(--accent);font-weight:900}
+  .footnote{font-size:12px;color:var(--muted)}
 
-/* Séparateurs */
-hr, .divider { background: var(--line) !important; border-color: var(--line) !important; }
+  /* Boutons (dark) */
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 18px;border-radius:16px;border:1px solid var(--line);text-decoration:none;font-weight:700;letter-spacing:.2px;transition:all .18s ease}
+  .btn-primary{background:var(--accent);color:var(--bg);border-color:var(--accent)}
+  .btn-primary:hover{filter:brightness(1.05);transform:translateY(-1px)}
+  .btn-secondary{background:transparent;color:var(--txt);border-color:var(--line)}
+  .btn-secondary:hover{background:var(--pill)}
+  .btn-ghost{background:transparent;color:var(--txt);border-color:var(--line)}
+  .btn-ghost:hover{background:rgba(255,255,255,.04)}
 
-/* Header translucide */
-.header { backdrop-filter: blur(8px); background: rgba(11,11,11,.75) !important; border-bottom:1px solid var(--line) !important; }
-</style>
+  /* Amazon brand */
+  .amazon-banner{background:#232f3e;color:#fff}
+  .amazon-banner .inner{display:flex;gap:10px;align-items:center;justify-content:center;padding:10px 0;flex-wrap:wrap}
+  .az-badge{background:#ff9900;color:#111;padding:6px 10px;border-radius:999px;font-weight:800;font-size:12px}
+  .az-text{opacity:.95;font-weight:600}
+  .az-theme{--az-bg:#232f3e;--az-accent:#ff9900}
+  .az-theme h2{color:var(--az-bg)}
+  .az-callout{background:rgba(35,47,62,.06);border:1px solid rgba(35,47,62,.15);border-left:6px solid var(--az-accent);border-radius:12px;padding:14px;margin:10px 0}
+  .az-pill{display:inline-flex;align-items:center;gap:8px;background:var(--az-bg);color:#fff;border-radius:999px;padding:6px 10px;font-weight:800;font-size:12px}
+  .az-pill .dot{width:8px;height:8px;background:var(--az-accent);border-radius:999px;display:inline-block}
+  .az-emph{background:rgba(255,153,0,.12);border-left:4px solid var(--accent);padding:2px 8px;border-radius:6px;font-weight:800}
+  .highlight-pill{display:inline-flex;align-items:center;gap:8px;background:var(--brand);color:#111;padding:10px 14px;border-radius:999px;font-weight:800}
+  .highlight-pill .dot{width:8px;height:8px;background:var(--accent);border-radius:999px;display:inline-block}
+
+  /* Auteur */
+  .author-card{display:flex;gap:12px;align-items:center;justify-content:center;margin:10px auto 6px}
+  .author-photo{width:64px;height:64px;border-radius:50%;object-fit:cover;border:1px solid var(--line)}
+  .author-meta{font-size:14px;color:var(--muted)}
+
+  /* Sticky CTA & footer */
+  .sticky-cta{
+    position:sticky;bottom:0;background:rgba(11,11,11,.88);color:var(--txt);
+    backdrop-filter:saturate(180%) blur(8px);border-top:1px solid var(--line);box-shadow:0 -6px 24px rgba(0,0,0,.35)
+  }
+  .sticky-cta .inner{display:flex;gap:10px;align-items:center;justify-content:center;padding:10px}
+  .kicker{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#cfcac2}
+  footer{border-top:1px solid var(--line);background:transparent}
+
+  /* ====== RESCUE LECTURE (haute-contraste) ====== */
+  html, body, p, li, span, a, small { color: var(--txt) !important; }
+  h1, h2, h3, h4, h5, h6 { color: var(--txt) !important; }
+  .section, .section-card, .card, .box, .panel, .tile {
+    background: var(--pill) !important; border: 1px solid var(--line) !important; color: var(--txt) !important; border-radius: 16px;
+  }
+  .section-card p, .section-card li, .card p, .card li, .box p, .box li { color: var(--txt) !important; opacity: .95 !important; }
+  .subtitle, .muted, .note, .hint, .tag, .chip { color: var(--muted) !important; opacity: .9 !important; }
+  hr, .divider { background: var(--line) !important; border-color: var(--line) !important; }
+  </style>
 </head>
+
+<body>
+
+  <!-- HERO -->
+  <header class="hero hero-mag">
+    <div class="container">
+      <div class="glass-card" role="region" aria-label="Hero">
+        <p class="compat" aria-label="Compatible agenda">📅 COMPATIBLE AVEC VOTRE AGENDA</p>
+        <h1>Publie ton 1er eBook en 2 soirées — Coaching intensif en ligne via Google Meet</h1>
+        <p class="subtitle">Formule NOVICE (2×2h) ou FAST-TRACK (1×2h) — Option CONFORT (2×3h) pour plus de marge — Accompagnement complet de la création à la publication.</p>
+        <p class="subtitle">Finalise, mets en page et publie ton eBook sur Amazon KDP en 2 sessions guidées. Accompagnement en direct, corrections en temps réel. Replays 30 jours. Objectif : te rendre autonome pour créer et publier d’autres eBooks.</p>
+        <div class="badges" aria-label="Points clés">
+          <span class="badge">2 places max</span>
+          <span class="badge">Google Meet</span>
+          <span class="badge">Débutants bienvenus</span>
+          <span class="badge">Templates &amp; prompts inclus</span>
+          <span class="badge">Fast Track 129 €</span>
+        </div>
+      </div>
+
+      <div class="cta-group">
+        <a class="btn btn-primary" href="#prix" aria-label="Je réserve ma place">Je réserve ma place</a>
+        <a class="btn btn-secondary" href="#programme" aria-label="Voir le programme">Voir le programme</a>
+        <a class="btn btn-ghost" href="#kdp" aria-label="Découvrir KDP">Découvrir KDP ↓</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Amazon KDP banner -->
+    <div class="amazon-banner">
+      <div class="container inner">
+        <span class="az-badge">Amazon KDP</span>
+        <span class="az-text">Publie en toute autonomie sur la plateforme d’Amazon</span>
+      </div>
+    </div>
+
+    <!-- Qu'est-ce que KDP ? -->
+    <section id="kdp" class="container section az-theme">
+      <div class="az-pill"><span class="dot"></span>Amazon KDP</div>
+      <h2>Amazon KDP, c’est quoi ?</h2>
+      <div class="az-callout">
+        <p class="lead">KDP (Kindle Direct Publishing) est la plateforme d’Amazon pour <strong>auto-publier</strong> des eBooks (et, au besoin, des brochés). <span class="az-emph">Tu gardes 100% de tes droits d’auteur et pilotes ta fiche produit.</span></p>
+      </div>
+      <div class="grid-2">
+        <div class="card">
+          <h3>En clair</h3>
+          <ul class="list">
+            <li>Publication <strong>gratuite</strong> : aucun stock, pas d’imprimeur à payer.</li>
+            <li>Mise en vente en <strong>quelques heures/jours</strong> sur la boutique Amazon.</li>
+            <li>Tu fixes ton <strong>prix</strong> et gères description, catégories, mots-clés.</li>
+            <li><strong>Royalties</strong> sur chaque vente (35% ou 70% selon prix/territoires).</li>
+            <li>Tableau de bord et versements mensuels gérés par Amazon.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Pourquoi publier dessus</h3>
+          <ul class="list">
+            <li><strong>Audience mondiale</strong> : des millions de lecteurs sur Kindle.</li>
+            <li><strong>Découvrabilité</strong> : recherche Amazon + catégories/niches.</li>
+            <li><strong>Contrôle total</strong> : couverture, texte et prix modifiables à tout moment.</li>
+            <li><strong>Effet catalogue</strong> : chaque nouvel eBook renforce la visibilité de tes autres titres.</li>
+            <li><strong>Évolutif</strong> : commence simple, améliore ensuite (titres, description, catégories).</li>
+          </ul>
+          <p class="footnote">Important : KDP n’est pas une promesse de revenus. Les résultats dépendent de la qualité du contenu, du choix de la niche et de l’optimisation de la fiche produit.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- À qui s’adresse -->
+    <section id="pour-qui" class="container section">
+      <h2>À qui s’adresse la formation</h2>
+      <div class="highlight-pill" aria-label="Audience visée"><span class="dot"></span>A TOUS CEUX QUI SOUHAITENT GÉNÉRER UN REVENU PASSIF EN PUBLIANT UN EBOOK SUR AMAZON KDP</div>
+      <p class="lead">Mon objectif : te rendre autonome pour créer et publier d’autres eBooks sur Amazon KDP.</p>
+      <div class="grid-2">
+        <div class="card">
+          <h3>Profils</h3>
+          <ul class="check">
+            <li><span class="checkmark">✔</span> Débutant·e total·e : cadre simple et guidé.</li>
+            <li><span class="checkmark">✔</span> Intermédiaire pressé·e : brouillon → publication propre.</li>
+            <li><span class="checkmark">✔</span> Low/medium content : modèles + fiche produit optimisée.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Cette formation n’est pas pour toi si</h3>
+          <ul class="list">
+            <li>Tu veux une “machine à cash” instantanée — ici on construit un actif qui vend sur la durée. <span class="footnote">(Best-seller possible mais jamais garanti)</span></li>
+            <li>Refus d’itération/relecture — on corrige ensemble en direct.</li>
+            <li>Impossible de libérer 2×2h ni d’utiliser les replays sous 30 jours.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Résultats -->
+    <section id="resultats" class="container section">
+      <h2>Résultats concrets (à la fin, tu as…)</h2>
+      <div class="grid-2">
+        <div class="card">
+          <ul class="check">
+            <li><span class="checkmark">✔</span> Tu es autonome pour créer et publier d’autres eBooks sur Amazon KDP.</li>
+            <li><span class="checkmark">✔</span> Un eBook publié + une fiche produit KDP en ligne.</li>
+            <li><span class="checkmark">✔</span> Un intérieur propre (Canva) + une couverture conforme (gabarit KDP).</li>
+            <li><span class="checkmark">✔</span> Mini plan de lancement 7 jours post-publication.</li>
+            <li><span class="checkmark">✔</span> Templates réutilisables : description, prompts, mots-clés, checklists.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Jalons mesurables</h3>
+          <ul class="list">
+            <li>J1 fin de session : manuscrit finalisé + maquette validée.</li>
+            <li>J2 fin de session : publication envoyée + page produit live (ou en cours de validation KDP).</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Programme -->
+    <section id="programme" class="container section">
+      <h2>Programme en 2 soirées (via Google Meet)</h2>
+      <div class="grid-2">
+        <article class="card">
+          <h3>Soirée 1 — Idée → manuscrit → maquette (2h)</h3>
+          <ul class="list">
+            <li>Création/validation des comptes Amazon KDP, Canva, ChatGPT + dossier Drive partagé</li>
+            <li>Choix/validation du thème + positionnement + vérif basique droits (titres concurrents)</li>
+            <li>Structure express (roman/guide/carnet) + plan chapitres/sections</li>
+            <li>Rédaction assistée (ChatGPT guidé) + réécriture humaine + mention IA à prévoir</li>
+            <li>Maquette intérieure Canva : tailles, marges, styles, pagination, pages légales (titre, crédits), sommaire simple</li>
+            <li>Check qualité J1 + to-do entre les deux sessions (petites sections à compléter)</li>
+          </ul>
+          <p class="muted"><strong>Livrables :</strong> plan, manuscrit final, maquette intérieure prête.</p>
+        </article>
+        <article class="card">
+          <h3>Soirée 2 — Mise en page → KDP → fiche produit → publication (2h)</h3>
+          <ol>
+            <li>Finalisation manuscrit + relecture rapide (orthographe/clarté)</li>
+            <li>Exports conformes depuis Canva : PDF intérieur + couverture (gabarit KDP) ou fichiers requis selon format</li>
+            <li>Paramétrage KDP : détails du livre, langue, contributeurs, déclaration IA (si applicable)</li>
+            <li>Fiche produit optimisée : titre, sous-titre, description SEO, catégories (2–3), mots-clés (jusqu’à 7)</li>
+            <li>Contenu : upload manuscrit + couverture, Previewer + corrections</li>
+            <li>Droits & distribution : DRM (oui/non), territoires, KDP Select (oui/non)</li>
+            <li>Prix : stratégie de lancement + royalties</li>
+            <li>Envoi en publication + check qualité final + plan de lancement J+7 remis</li>
+          </ol>
+          <p class="muted"><strong>Livrables :</strong> fichiers finaux, fiche produit online, mini plan de lancement 7j.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Inclus -->
+    <section id="inclus" class="container section">
+      <h2>Ce qui est inclus</h2>
+      <div class="grid-3">
+        <div class="card">
+          <p><strong>Accompagnement en direct par Elo B</strong> (<span class="kicker">+ de 90 eBooks publiés</span>)</p>
+          <p><span class="badge">2 personnes max</span> · corrections en temps réel · partage d’écran</p>
+        </div>
+        <div class="card">
+          <p><span class="badge">Replays 30 jours</span></p>
+          <p>Templates : descriptions, prompts, gabarits Canva, listes catégories &amp; mots-clés</p>
+        </div>
+        <div class="card">
+          <p>Checklists : avant publication, contrôle qualité KDP, lancement 7 jours</p>
+          <p>Outils guidés : Amazon KDP, Canva, ChatGPT (pas à pas)</p>
+          <p><strong>Bonus :</strong> modèle de fiche produit KDP commentée</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Comment ça marche -->
+    <section id="comment" class="container section">
+      <h2>Comment ça marche (simple en 3 étapes)</h2>
+      <ol>
+        <li><strong>Inscription :</strong> écris à <a href="mailto:objectifkdp@gmail.com">objectifkdp@gmail.com</a>, on fixe les 2 dates, tu règles 50% (solde à la publication de ton eBook sur Amazon KDP).</li>
+        <li><strong>Pré-work (30–60 min) :</strong> check technique (micro/connexion), brouillon/idéation, images éventuelles.</li>
+        <li><strong>2 sessions en visio :</strong> Google Meet → publication → suivi par email.</li>
+      </ol>
+    </section>
+
+    <!-- Preuves -->
+    <section id="preuves" class="container section">
+      <h2>Preuves & crédibilité</h2>
+      <p><strong>Formatrice :</strong> Elo B — autrice KDP, + de 90 eBooks publiés. Méthode terrain : zéro blabla, on produit en direct.</p>
+    </section>
+
+    <!-- Bio -->
+    <section id="bio" class="container section">
+      <h2>Qui est Elo B ?</h2>
+      <div class="grid-2">
+        <figure class="card">
+          <img src="elo-hero.jpg" alt="Portrait d’Elo B" />
+        </figure>
+        <div class="card">
+          <ul class="check">
+            <li><span class="checkmark">✔</span> Autrice KDP (90+ eBooks) — romans, guides & low/medium content.</li>
+            <li><span class="checkmark">✔</span> Spécialiste mise en page Canva + optimisation fiche produit.</li>
+            <li><span class="checkmark">✔</span> Méthode express : 2×2h, corrections en direct, zéro blabla.</li>
+            <li><span class="checkmark">✔</span> Objectif : <strong>autonomie</strong> — tu peux publier d’autres eBooks seul·e.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tarifs -->
+    <section id="prix" class="container section">
+      <h2>Tarifs &amp; inscription</h2>
+      <div class="price-cards">
+        <article class="price-card">
+          <div class="ribbon">FORMULE A</div>
+          <h3>Novice (2×2h)</h3>
+          <p class="price">149 €</p>
+          <p class="muted">Parfait pour carnet/journal ou mini-guide court. Tu viens avec une idée et on publie.</p>
+          <ul class="check">
+            <li><span class="checkmark">✔</span> Création comptes + publication ensemble</li>
+            <li><span class="checkmark">✔</span> Mise en page &amp; couverture express</li>
+            <li><span class="checkmark">✔</span> Upload complet &amp; vérifs finales</li>
+            <li><span class="checkmark">✔</span> Templates description + mots-clés</li>
+          </ul>
+          <div class="cta-group" style="margin-top:12px">
+            <a class="btn btn-primary" href="mailto:objectifkdp@gmail.com?subject=Inscription%20Objectif%20KDP%20-%20Formule%20A">S’inscrire</a>
+            <a class="btn btn-ghost" href="https://paypal.me/elobbb">Payer acompte (PayPal)</a>
+            <a class="btn btn-secondary" href="https://revolut.me/elob_kdp">Payer acompte (Revolut)</a>
+            <a class="btn btn-secondary" href="mailto:objectifkdp@gmail.com?subject=Question%20-%20Objectif%20KDP">Parler à Elo</a>
+          </div>
+        </article>
+
+        <article class="price-card">
+          <div class="ribbon">FORMULE B</div>
+          <h3>Fast Track (1×2h)</h3>
+          <p class="price">129 €</p>
+          <p class="muted">Manuscrit et visuels prêts ? On finalise et on publie en 2h.</p>
+          <ul class="check">
+            <li><span class="checkmark">✔</span> Tu as déjà KDP + Canva + un brouillon</li>
+            <li><span class="checkmark">✔</span> On finalise et on publie dans la séance</li>
+            <li><span class="checkmark">✔</span> Checklist métadonnées &amp; prix + mini plan 7j</li>
+          </ul>
+          <div class="cta-group" style="margin-top:12px">
+            <a class="btn btn-primary" href="mailto:objectifkdp@gmail.com?subject=Inscription%20Objectif%20KDP%20-%20Formule%20B">S’inscrire</a>
+            <a class="btn btn-ghost" href="https://paypal.me/elobbb">Payer acompte (PayPal)</a>
+            <a class="btn btn-secondary" href="https://revolut.me/elob_kdp">Payer acompte (Revolut)</a>
+            <a class="btn btn-secondary" href="mailto:objectifkdp@gmail.com?subject=Question%20-%20Objectif%20KDP">Parler à Elo</a>
+          </div>
+        </article>
+
+        <article class="price-card">
+          <div class="ribbon">FORMULE CONFORT</div>
+          <h3>Confort (2×3h)</h3>
+          <p class="price">199 €</p>
+          <p class="muted">Pour projet plus long ou si tu veux plus de temps pour peaufiner (couverture, description). Même objectif : publier + plan J+7.</p>
+          <ul class="check">
+            <li><span class="checkmark">✔</span> Plus de temps pour la relecture &amp; la description</li>
+            <li><span class="checkmark">✔</span> Couverture optimisée + variantes si besoin</li>
+            <li><span class="checkmark">✔</span> Mise en ligne + plan de lancement J+7</li>
+          </ul>
+          <div class="cta-group" style="margin-top:12px">
+            <a class="btn btn-primary" href="mailto:objectifkdp@gmail.com?subject=Inscription%20Objectif%20KDP%20-%20Formule%20Confort">S’inscrire</a>
+            <a class="btn btn-ghost" href="https://paypal.me/elobbb">Payer acompte (PayPal)</a>
+            <a class="btn btn-secondary" href="https://revolut.me/elob_kdp">Payer acompte (Revolut)</a>
+            <a class="btn btn-secondary" href="mailto:objectifkdp@gmail.com?subject=Question%20-%20Objectif%20KDP">Parler à Elo</a>
+          </div>
+        </article>
+
+        <article class="price-card">
+          <div class="ribbon">FORMULE C</div>
+          <h3>Done For You</h3>
+          <p class="price">249 €</p>
+          <ul class="check">
+            <li><span class="checkmark">✔</span> Je fais tout : mini guide, cover, description A+, métadonnées</li>
+            <li><span class="checkmark">✔</span> Tu crées ton compte KDP — mise en ligne sur ton espace</li>
+            <li><span class="checkmark">✔</span> Livrables prêts + 1 check final en visio (30 min)</li>
+          </ul>
+          <div class="cta-group" style="margin-top:12px">
+            <a class="btn btn-primary" href="mailto:objectifkdp@gmail.com?subject=Inscription%20Objectif%20KDP%20-%20Formule%20C">S’inscrire</a>
+            <a class="btn btn-ghost" href="https://paypal.me/elobbb">Payer acompte (PayPal)</a>
+            <a class="btn btn-secondary" href="https://revolut.me/elob_kdp">Payer acompte (Revolut)</a>
+            <a class="btn btn-secondary" href="mailto:objectifkdp@gmail.com?subject=Question%20-%20Objectif%20KDP">Parler à Elo</a>
+          </div>
+        </article>
+      </div>
+
+      <div class="author-card" aria-label="Garantie formatrice">
+        <img src="elo-hero.jpg" alt="Elo B — formatrice Objectif KDP" class="author-photo" />
+        <div class="author-meta"><strong>Garantie Elo B :</strong> rattrapage offert si ton eBook n’est pas publié à l’issue des sessions.</div>
+      </div>
+      <p class="footnote">Paiement : <strong>50% d’acompte</strong> via lien PayPal ou Revolut, <strong>solde à la publication</strong> de l’eBook. Garantie : “1er eBook publié ou rattrapage inclus”.</p>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="container section">
+      <h2>FAQ</h2>
+      <details><summary>Je n’ai pas d’idée.</summary><p>On en choisit une rapidement grâce à une grille simple (marché, angles). Tu peux partir d’un carnet/guide court.</p></details>
+      <details><summary>Je suis nul·le en technique.</summary><p>Tu suis mon écran. Je te guide pas à pas sur Canva et KDP. Templates fournis.</p></details>
+      <details><summary>J’ai peu de temps.</summary><p>2×2h + un court pré-work. Replays 30 jours pour réviser.</p></details>
+      <details><summary>2×2h, c’est suffisant ?</summary><p>Oui pour un projet simple (carnet, journal ou mini-guide court) avec un petit pré-travail. Pour un projet plus long, prends <strong>la formule Confort (2×3h)</strong>.</p></details>
+      <details><summary>KDP est saturé, non ?</summary><p>Certains sujets oui. On t’oriente vers des niches concrètes + description et catégories qui se positionnent.</p></details>
+      <details><summary>Droits d’auteur / images ?</summary><p>On utilise tes textes/visuels originaux ou des banques libres de droits. On vérifie les licences.</p></details>
+      <details><summary>AI (ChatGPT), c’est autorisé ?</summary><p>Oui, pour assister la rédaction et la structure. Relecture humaine obligatoire. On respecte les règles KDP.</p></details>
+      <details><summary>Formats pris en charge ?</summary><p>eBook (KDP), intérieur Canva conforme, couverture au gabarit.</p></details>
+      <details><summary>Et si mon eBook n’est pas publié à la fin ?</summary><p>Garantie rattrapage : on planifie un créneau court pour boucler (inclus). Je ne te lâche pas tant que ton projet n’est pas en ligne.</p></details>
+      <details><summary>Paiement & modalités</summary><p>Tu règles <strong>50% d’acompte</strong> via lien PayPal ou Revolut. Le <strong>solde est dû uniquement quand ton eBook est publié</strong> sur Amazon KDP. Preuve de mise en ligne = capture page produit ou mail KDP.</p></details>
+      <details><summary>Combien coûte le Fast Track ?</summary><p><strong>129 € TTC</strong>. Idéal si ton manuscrit et tes visuels sont déjà prêts : on finalise et on publie en 2h.</p></details>
+    </section>
+
+    <!-- Mentions & CGV -->
+    <section id="mentions" class="container section">
+      <h2>Mentions importantes</h2>
+      <p>Sessions <strong>Google Meet</strong> (lien envoyé après inscription). Ce n’est pas une suite de workbooks : on publie vraiment.</p>
+    </section>
+
+    <section id="cgv" class="container section">
+      <h2>CGV (résumé opérationnel)</h2>
+      <ul class="list">
+        <li>Éditeur/organisateur : Elo B_ Objectif KDP_Paris — <a href="mailto:objectifkdp@gmail.com">objectifkdp@gmail.com</a></li>
+        <li>Objet : vente d’une formation en ligne “Objectif KDP”.</li>
+        <li>Prix & paiement : prix TTC affiché au moment de l’achat ; paiement sécurisé ; facilités éventuelles.</li>
+        <li>Accès : lien Google Meet + replays 30 jours.</li>
+        <li>Rétractation : report ≥48h sinon replay fourni. Droit de rétractation selon cadre légal en vigueur.</li>
+        <li>Annulation/report : force majeure → nouvelle date proposée ; modalités élève idem ci-dessus.</li>
+        <li>Propriété intellectuelle : templates et contenus pour usage personnel — pas de revente/partage.</li>
+        <li>Responsabilité : pas de promesse de revenus ; conformité des contenus sous ta responsabilité.</li>
+        <li>Données personnelles : gestion de l’inscription ; droit d’accès/suppression sur demande.</li>
+      </ul>
+    </section>
+
+    <!-- Checklist -->
+    <section id="checklist" class="container section">
+      <h2>Checklist de publication</h2>
+      <ul class="check">
+        <li><span class="checkmark">✔</span> Comptes : Amazon KDP, Canva (gratuit OK), ChatGPT</li>
+        <li><span class="checkmark">✔</span> Tech : micro OK, connexion stable, navigateur à jour</li>
+        <li><span class="checkmark">✔</span> Matériel : PC/Mac, Google Chrome, casque micro (optionnel)</li>
+        <li><span class="checkmark">✔</span> Docs : titre provisoire, 3–5 mots-clés + 10 secondaires, visuels libres de droits, bio auteur</li>
+      </ul>
+      <div class="cta-group"><a class="btn btn-primary" href="#prix">Prêt·e ? Je réserve (2 places max)</a></div>
+    </section>
+  </main>
+
+  <!-- Sticky CTA -->
+  <div class="sticky-cta">
+    <div class="container inner">
+      <span class="kicker">2 places max</span>
+      <span class="kicker">•</span>
+      <span class="kicker">Acompte 50% — Solde à la publication</span>
+      <a class="btn btn-primary" href="#prix">Je réserve ma place</a>
+      <a class="btn btn-secondary" href="#programme">Voir le programme</a>
+    </div>
+  </div>
+
+  <footer class="container">
+    <p class="footnote">© 【2025】 Objectif KDP — Support : <a href="mailto:objectifkdp@gmail.com">objectifkdp@gmail.com</a></p>
+    <script type="application/ld+json">{
+      "@context":"https://schema.org",
+      "@type":"Course",
+      "name":"Objectif KDP — Publie ton 1er eBook en 2 soirées",
+      "description":"Formation express en ligne pour publier un eBook sur Amazon KDP en 2×2h, avec accompagnement en direct, 2 places max et replays 30 jours. Objectif : autonomie.",
+      "image":"elo-hero.jpg","provider":{"@type":"Organization","name":"Objectif KDP"},
+      "hasCourseInstance":{
+        "@type":"CourseInstance",
+        "courseMode":"online",
+        "location":{"@type":"VirtualLocation","url":"mailto:objectifkdp@gmail.com"},
+        "offers":{"@type":"Offer","price":"149","priceCurrency":"EUR","availability":"https://schema.org/LimitedAvailability"}
+      }
+    }</script>
+  </footer>
+
+</body>
+</html>
