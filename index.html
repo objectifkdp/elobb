@@ -1,14 +1,50 @@
 <!doctype html>
 <html lang="fr">
-<head>
+<head><!-- Polices luxe -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+<style>
+  /* Titres serif élégants */
+  h1,h2,h3{ font-family:"Playfair Display", ui-serif, Georgia, serif; color:var(--txt); }
+  html,body{ font-family:Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, "Helvetica Neue", "Noto Sans", "Liberation Sans", sans-serif; }
+
+  /* Cartes/sections plus “luxe” */
+  .section, .author-card, .card, .box { background: var(--pill); border:1px solid var(--line); border-radius:16px; }
+
+  /* Boutons */
+  .btn, .cta { border:1px solid var(--line); border-radius:16px; }
+  .btn-primary, .cta-primary { background: var(--accent); color: var(--bg); border-color: var(--accent); }
+  .btn:hover, .cta:hover { filter:brightness(1.05); }
+
+  /* Badges/puces */
+  .badges, .pill, .chip { background: var(--pill); border:1px solid var(--line); color: var(--txt); }
+
+  /* Sous-titres doux */
+  .subtitle, .muted, .note { color: var(--muted); }
+
+  /* Séparateurs fins */
+  hr, .divider { border-color: var(--line); background: var(--line); opacity: 1; }
+
+  /* Header translucide clean (si tu as une classe .header/.hero) */
+  .header{ backdrop-filter: blur(8px); background: rgba(11,11,11,.75); border-bottom:1px solid var(--line); }
+</style>
+
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Objectif KDP — Publie ton 1er eBook en 2 soirées</title>
   <meta name="description" content="Publie ton eBook sur Amazon KDP en 2×2h. Accompagnement en direct, 2 places max, replays 30 jours, compatible avec votre agenda. Objectif : te rendre autonome." />
   <style>
-    :root{
-      --bg:#ffffff; --txt:#0b0b0b; --muted:#6b7280; --line:#eaeaea; --pill:#f6f6f6; --brand:#232f3e; --accent:#ff9900; --ok:#16a34a;
-    }
+      :root{
+  /* Palette luxe / nuit */
+  --bg:#0B0B0B;         /* fond noir profond */
+  --txt:#F2EFEA;        /* texte ivoire */
+  --muted:#D9D6CF;      /* texte adouci */
+  --line:#242424;       /* séparateurs charbon */
+  --pill:#121212;       /* cartes sombres */
+  --brand:#C6A15B;      /* or doux (accents/titres) */
+  --accent:#C6A15B;     /* or doux (boutons/CTA) */
+  --ok:#16a34a;         /* OK peut rester */
+ }
     *{box-sizing:border-box}
     html,body{margin:0;padding:0;font-family:Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;background:var(--bg);color:var(--txt);line-height:1.55}
     a{color:inherit}
