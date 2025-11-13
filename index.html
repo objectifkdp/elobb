@@ -10,28 +10,10 @@
   <meta property="og:image" content="elo-hero.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
   <link rel="icon" href="favicon.png" type="image/png" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
 
   <style>
-/* Hero – clair (frosted) */
-.hero-mag{
-  position:relative;
-  padding:clamp(48px,10vw,120px) 0;
-  /* ↓ lighten the overlay so your photo shows through */
-  background-image:
-    linear-gradient(180deg, rgba(255,255,255,.35), rgba(255,255,255,.45)),
-    url('elo-hero.jpg');
-  background-size:cover;
-  background-position:center;
-  background-repeat:no-repeat;
-  min-height:56vh;               /* gives room to see you */
-}
-.glass-card{
-  /* ↓ slightly less opaque glass */
-  background:rgba(255,255,255,.78);
-}
-
-    /* =========================
+  /* =========================
      THEME CLAIR (ivoire + marron)
      ========================= */
   :root{
@@ -42,7 +24,6 @@
     --pill:#FFFFFF;        /* cartes blanches */
     --accent:#C6A15B;      /* or doux (CTA/traits) */
     --brand:#8A6A45;       /* marron-or titres */
-    /* Compat avec anciens usages */
     --txt: var(--ink);
     --muted: var(--ink-soft);
   }
@@ -72,24 +53,31 @@
 
   /* Boutons */
   .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 18px;border-radius:16px;
-      border:1px solid var(--line);font-weight:700;letter-spacing:.2px;transition:all .18s ease}
+       border:1px solid var(--line);font-weight:700;letter-spacing:.2px;transition:all .18s ease}
   .btn-primary{background:var(--accent);color:#1b1b1b;border-color:var(--accent)}
   .btn-primary:hover{filter:brightness(1.05);transform:translateY(-1px)}
   .btn-secondary,.btn-ghost{background:transparent;color:var(--ink);border-color:var(--line)}
   .btn-secondary:hover,.btn-ghost:hover{background:#F4EFE8}
 
-  /* Hero – clair (frosted) */
+  /* HERO — visage bien visible */
   .hero{padding-top:64px;padding-bottom:28px;text-align:center}
   .hero-mag{
-    position:relative;padding:clamp(48px,10vw,120px) 0;
+    position:relative;
+    padding:clamp(48px,10vw,120px) 0;
     background-image:
-      linear-gradient(180deg, rgba(255,255,255,.70), rgba(255,255,255,.78)),
+      linear-gradient(180deg, rgba(255,255,255,.22), rgba(255,255,255,.34)),
       url('elo-hero.jpg');
-    background-size:cover;background-position:center
+    background-size:cover;
+    background-position:50% 18%;       /* focus haut → visage */
+    background-repeat:no-repeat;
+    min-height:62vh;
+  }
+  @media (min-width:860px){
+    .hero-mag{ background-position:50% 28%; min-height:68vh; }
   }
   .glass-card{
     max-width:1100px;margin:0 auto;
-    background:rgba(255,255,255,.85);
+    background:rgba(255,255,255,.74);  /* un peu plus transparent */
     backdrop-filter:blur(16px) saturate(120%);
     -webkit-backdrop-filter:blur(16px) saturate(120%);
     border:1px solid rgba(0,0,0,.06);
@@ -102,6 +90,15 @@
           color:var(--ink);background:#fff;border:1px solid var(--line);padding:6px 12px;border-radius:999px;margin:6px auto 18px}
   .badges{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin:10px auto 20px}
   .badge{font-size:12px;padding:6px 10px;border-radius:999px}
+
+  /* Portrait explicite (toujours visible) */
+  .author-inline{ display:flex; align-items:center; gap:12px; margin-top:12px; }
+  .author-photo-lg{
+    width:84px; height:84px; border-radius:50%;
+    object-fit:cover; object-position:center 20%;
+    border:1px solid var(--line);
+  }
+  .author-inline-meta{ color:var(--ink-soft); font-size:14px; }
 
   /* Titres de section */
   .section{padding:24px 0}
@@ -134,12 +131,7 @@
   .az-pill .dot{width:8px;height:8px;background:var(--az-accent);border-radius:999px;display:inline-block}
   .az-emph{background:rgba(255,153,0,.16);border-left:4px solid var(--az-accent);padding:2px 8px;border-radius:6px;font-weight:800;color:#232F3E}
 
-  /* Auteur */
-  .author-card{display:flex;gap:12px;align-items:center;justify-content:center;margin:10px auto 6px}
-  .author-photo{width:64px;height:64px;border-radius:50%;object-fit:cover;border:1px solid var(--line)}
-  .author-meta{font-size:14px;color:var(--ink-soft)}
-
-  /* Sticky CTA – clair (placée en dernier pour ne pas être écrasée) */
+  /* Sticky CTA */
   .sticky-cta{
     position:sticky;bottom:0;
     background:rgba(255,255,255,.92);
@@ -152,7 +144,7 @@
   .kicker{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft)}
   footer{border-top:1px solid var(--line);background:transparent}
 
-  /* Sauvegarde lisibilité (haute-contraste) */
+  /* Sécurité lisibilité */
   html, body, p, li, span, a, small { color: var(--ink) !important; }
   h1, h2, h3, h4, h5, h6 { color: var(--ink) !important; }
   .section-card p, .section-card li, .card p, .card li, .box p, .box li { color: var(--ink) !important; opacity:.98 !important; }
@@ -167,6 +159,7 @@
         <p class="compat">📅 COMPATIBLE AVEC VOTRE AGENDA</p>
         <h1>Publie ton 1er eBook en 2 soirées — Coaching intensif en ligne via Google Meet</h1>
         <p class="subtitle">Formule NOVICE (2×2h) ou FAST-TRACK (1×2h) — Option CONFORT (2×3h) — de l’idée à la publication Amazon KDP.</p>
+
         <div class="badges">
           <span class="badge">2 places max</span>
           <span class="badge">Google Meet</span>
@@ -174,7 +167,14 @@
           <span class="badge">Templates &amp; prompts inclus</span>
           <span class="badge">Fast Track 129 €</span>
         </div>
+
+        <!-- Portrait toujours visible -->
+        <div class="author-inline">
+          <img src="elo-hero.jpg" alt="Élodie (Elo B)" class="author-photo-lg">
+          <div class="author-inline-meta"><strong>Elo B</strong> — autrice KDP (90+ eBooks), formatrice Objectif KDP</div>
+        </div>
       </div>
+
       <div class="cta-group" style="margin-top:14px">
         <a class="btn btn-primary" href="#prix">Je réserve ma place</a>
         <a class="btn btn-secondary" href="#programme">Voir le programme</a>
@@ -192,7 +192,7 @@
       </div>
     </div>
 
-    <!-- SECTION KDP (brandée Amazon) -->
+    <!-- SECTION KDP -->
     <section id="kdp" class="container section az-theme">
       <div class="az-pill"><span class="dot"></span>Amazon KDP</div>
       <h2>Amazon KDP, c’est quoi ?</h2>
@@ -352,7 +352,7 @@
       <h2>FAQ</h2>
       <details><summary>Je n’ai pas d’idée.</summary><p>On en choisit une rapidement (grille marché/angles). Tu peux partir d’un carnet/guide court.</p></details>
       <details><summary>Je suis nul·le en technique.</summary><p>Tu suis mon écran. Je te guide pas à pas sur Canva et KDP. Templates fournis.</p></details>
-      <details><summary>2×2h, c’est suffisant ?</summary><p>Oui pour un projet simple (carnet/journal/mini-guide). Pour plus long, prends la formule Confort (2×3h).</p></details>
+      <details><summary>2×2h, c’est suffisant ?</summary><p>Oui pour un projet simple (carnet/journal/mini-guide). Pour plus long, formule Confort (2×3h).</p></details>
       <details><summary>AI (ChatGPT), c’est autorisé ?</summary><p>Oui pour assister la rédaction/structure. Relecture humaine obligatoire. On respecte les règles KDP.</p></details>
     </section>
 
