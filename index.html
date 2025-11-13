@@ -13,7 +13,25 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
 
   <style>
-  /* =========================
+/* Hero – clair (frosted) */
+.hero-mag{
+  position:relative;
+  padding:clamp(48px,10vw,120px) 0;
+  /* ↓ lighten the overlay so your photo shows through */
+  background-image:
+    linear-gradient(180deg, rgba(255,255,255,.35), rgba(255,255,255,.45)),
+    url('elo-hero.jpg');
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
+  min-height:56vh;               /* gives room to see you */
+}
+.glass-card{
+  /* ↓ slightly less opaque glass */
+  background:rgba(255,255,255,.78);
+}
+
+    /* =========================
      THEME CLAIR (ivoire + marron)
      ========================= */
   :root{
